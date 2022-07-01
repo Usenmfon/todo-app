@@ -12,6 +12,7 @@ app.use(cors())
 app.use("/", routes)
 
 const connectionString = `mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`
+
 db.connect(connectionString, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
