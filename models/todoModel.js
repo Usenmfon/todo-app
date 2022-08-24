@@ -5,6 +5,7 @@ const TodoSchema = mongoose.Schema(
   {
     title: { type: String, required: [true, "enter the title"] },
     description: { type: String, required: [true, "enter the description"] },
+    status: { type: Boolean, default: true}
   },
   {
     timestamps: true,

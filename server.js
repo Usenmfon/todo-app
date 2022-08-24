@@ -7,11 +7,16 @@ const cors = require("cors")
 const db = mongoose
 const app = express()
 
+process.on('unhandledRejection', function(reason, p){
+    console.log("Possibly Unhandled Rejection at: Promise ", p, " reason: ", reason);
+});
+
 app.use(json())
 app.use(cors())
 app.use("/", routes)
 
 const connectionString = `mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`
+
 
 db.connect(connectionString, {
     useNewUrlParser: true,
