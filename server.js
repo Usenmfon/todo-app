@@ -15,7 +15,7 @@ app.use(json())
 app.use(cors())
 app.use("/", routes)
 
-const connectionString = `mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`
+const connectionString = process.env.MONGO_URL `mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`
 
 
 db.connect(connectionString, {
